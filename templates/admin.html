@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Panel</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+    <h2>MLBB ADMIN</h2>
+
+    <div class="sidebar-buttons">
+
+        <a href="/admin" class="nav-btn">
+            <i class="fa-solid fa-chart-line"></i>
+            Dashboard
+        </a>
+
+        <a href="/create_tournament" class="nav-btn">
+            <i class="fa-solid fa-trophy"></i>
+            Tournament
+        </a>
+
+        <a href="/create_match" class="nav-btn">
+            <i class="fa-solid fa-gamepad"></i>
+            Matches
+        </a>
+
+        <!-- ✅ MATCH HISTORY BUTTON FIXED -->
+        <a href="/match_history" class="nav-btn">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+            Match History
+        </a>
+
+        <a href="/logout" class="nav-btn logout-btn">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+        </a>
+
+    </div>
+
+</div>
+
+<!-- MAIN CONTENT -->
+
+<div class="main-content">
+
+    <!-- TOPBAR -->
+
+    <div class="topbar">
+
+        <h1>Admin Dashboard</h1>
+
+        <div class="admin-profile">
+
+            <i class="fa-solid fa-user-shield"></i>
+            Administrator
+
+        </div>
+
+    </div>
+
+    <!-- DASHBOARD CARDS -->
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="card-icon">
+                <i class="fa-solid fa-users"></i>
+            </div>
+            <h2>{{ users|length }}</h2>
+            <p>Total Users</p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">
+                <i class="fa-solid fa-trophy"></i>
+            </div>
+            <h2>{{ tournaments|length }}</h2>
+            <p>Total Tournaments</p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">
+                <i class="fa-solid fa-gamepad"></i>
+            </div>
+            <h2>{{ matches|length }}</h2>
+            <p>Total Matches</p>
+        </div>
+
+    </div>
+
+    <!-- MATCH TABLE -->
+
+    <div class="table-container">
+
+        <div class="table-header">
+            <h2>Manage Matches</h2>
+        </div>
+
+        <table>
+
+            <tr>
+                <th>Teams</th>
+                <th>Bracket</th>
+                <th>Score</th>
+                <th>Status</th>
+                <th>Winner</th>
+                <th>Action</th>
+            </tr>
+
+            {% for match in matches %}
+
+            <tr>
+
+                <td>
+                    <div class="team-box">
+                        <span>{{ match.team1 }}</span>
+                        <strong>VS</strong>
+                        <span>{{ match.team2 }}</span>
+                    </div>
+                </td>
+
+                <td>{{ match.bracket }}</td>
+
+                <td>
+                    <div class="score-box">
+                        {{ match.score1 }} - {{ match.score2 }}
+                    </div>
+                </td>
+
+                <td>
+
+                    {% if match.status == "Live" %}
+                        <span class="live-badge">LIVE</span>
+
+                    {% elif match.status == "Finished" %}
+                        <span class="finished-badge">FINISHED</span>
+
+                    {% else %}
+                        <span class="upcoming-badge">UPCOMING</span>
+                    {% endif %}
+
+                </td>
+
+                <td>{{ match.winner }}</td>
+
+                <!-- ACTION BUTTONS -->
+                <td>
+
+                    <a href="/update_match/{{ match.id }}">
+                        <button class="update-btn">
+                            <i class="fa-solid fa-pen"></i>
+                            Update
+                        </button>
+                    </a>
+
+                    <a href="/delete_match/{{ match.id }}">
+                        <button class="delete-btn">
+                            <i class="fa-solid fa-trash"></i>
+                            Delete
+                        </button>
+                    </a>
+
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+    <!-- USERS SECTION -->
+
+    <div class="users-section">
+
+        <h2>Registered Users</h2>
+
+        <div class="users-grid">
+
+            {% for user in users %}
+
+            <div class="user-card">
+
+                <i class="fa-solid fa-user"></i>
+
+                <h3>{{ user.username }}</h3>
+
+                <p>{{ user.email }}</p>
+
+                <span class="role-badge">
+                    {{ user.role }}
+                </span>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

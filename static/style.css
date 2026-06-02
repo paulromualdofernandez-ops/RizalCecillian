@@ -1,0 +1,626 @@
+:root{
+    --bg:#0f172a;
+    --card:#1e293b;
+    --text:white;
+    --sidebar:#111827;
+    --primary:#2563eb;
+}
+
+/* LIGHT MODE */
+
+.light-mode{
+    --bg:#f1f5f9;
+    --card:white;
+    --text:black;
+    --sidebar:#e2e8f0;
+}
+
+/* GLOBAL */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    transition:0.3s;
+}
+
+/* NAVBAR */
+
+nav{
+    background:var(--sidebar);
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+nav a{
+    color:white;
+    margin:5px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#3b82f6;
+}
+
+/* CONTAINER */
+
+.container{
+    width:90%;
+    margin:auto;
+}
+
+/* CARDS */
+
+.card{
+    background:var(--card);
+    padding:20px;
+    border-radius:15px;
+    margin-top:20px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* GRID */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+/* INPUTS */
+
+input,
+button,
+select{
+    width:100%;
+    padding:14px;
+    margin-top:12px;
+    border:none;
+    border-radius:10px;
+    outline:none;
+    font-size:15px;
+}
+
+/* BUTTONS */
+
+button{
+    background:var(--primary);
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+    font-weight:bold;
+}
+
+button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 4px 12px rgba(37,99,235,0.4);
+}
+
+/* HERO */
+
+.hero{
+    text-align:center;
+    padding:60px 20px;
+}
+
+.hero h1{
+    font-size:45px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    opacity:0.8;
+}
+
+/* MATCH BRACKET */
+
+.bracket{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.match-box{
+    background:var(--card);
+    padding:20px;
+    border-radius:15px;
+    width:260px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.3);
+}
+
+.live{
+    color:#22c55e;
+    font-weight:bold;
+}
+
+/* TOGGLE BUTTON */
+
+.toggle-btn{
+    width:auto;
+    padding:10px 20px;
+}
+
+/* FORM DESIGN */
+
+.form-container{
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.form-card{
+    width:100%;
+    max-width:500px;
+    background:var(--card);
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.4);
+}
+
+.form-card h1{
+    text-align:center;
+    margin-bottom:30px;
+    color:#3b82f6;
+}
+
+form input,
+form select{
+    width:100%;
+    padding:15px;
+    margin-top:15px;
+    border:none;
+    outline:none;
+    border-radius:10px;
+    background:#334155;
+    color:white;
+    font-size:16px;
+}
+
+form input::placeholder{
+    color:#cbd5e1;
+}
+
+/* MAIN BUTTON */
+
+.main-btn{
+    width:100%;
+    padding:15px;
+    margin-top:25px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(90deg,#2563eb,#3b82f6);
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.main-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 5px 15px rgba(37,99,235,0.5);
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    width:230px;
+    min-height:100vh;
+    background:var(--sidebar);
+    position:fixed;
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.sidebar h2{
+    margin-bottom:25px;
+    color:#3b82f6;
+}
+
+/* SIDEBAR BUTTONS */
+
+.sidebar-buttons{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    width:100%;
+    margin-top:20px;
+}
+
+/* NAVIGATION BUTTONS */
+
+.nav-btn{
+    width:85%;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    text-decoration:none;
+    background:#1e293b;
+    color:white;
+    padding:15px;
+    margin-bottom:15px;
+    border-radius:12px;
+    transition:0.3s;
+    font-weight:bold;
+    justify-content:flex-start;
+    box-shadow:0 4px 10px rgba(0,0,0,0.3);
+}
+
+.nav-btn:hover{
+    transform:translateX(5px);
+    background:linear-gradient(90deg,#2563eb,#3b82f6);
+}
+
+/* LOGOUT BUTTON */
+
+.logout-btn{
+    background:#7f1d1d;
+}
+
+.logout-btn:hover{
+    background:#dc2626;
+}
+
+/* MAIN CONTENT */
+
+.main-content{
+    margin-left:230px;
+    padding:25px;
+}
+
+/* TOPBAR */
+
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.admin-profile{
+    background:var(--card);
+    padding:12px 20px;
+    border-radius:12px;
+}
+
+/* DASHBOARD CARDS */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    margin-bottom:30px;
+}
+
+.card-icon{
+    font-size:30px;
+    margin-bottom:15px;
+    color:#3b82f6;
+}
+
+/* TABLE */
+
+.table-container{
+    background:var(--card);
+    padding:20px;
+    border-radius:15px;
+    overflow-x:auto;
+    margin-top:20px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+table th,
+table td{
+    padding:15px;
+    text-align:left;
+}
+
+table tr{
+    border-bottom:1px solid #334155;
+}
+
+/* TEAM BOX */
+
+.team-box{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+/* SCORE BOX */
+
+.score-box{
+    font-weight:bold;
+    color:#3b82f6;
+}
+
+/* STATUS BADGES */
+
+.live-badge,
+.finished-badge,
+.upcoming-badge{
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.live-badge{
+    background:red;
+}
+
+.finished-badge{
+    background:#16a34a;
+}
+
+.upcoming-badge{
+    background:#ca8a04;
+}
+
+/* UPDATE BUTTON */
+
+.update-btn{
+    border:none;
+    padding:10px 18px;
+    border-radius:10px;
+    background:linear-gradient(90deg,#2563eb,#3b82f6);
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.update-btn:hover{
+    transform:scale(1.05);
+    box-shadow:0 4px 15px rgba(37,99,235,0.5);
+}
+
+/* USERS SECTION */
+
+.users-section{
+    margin-top:30px;
+}
+
+.users-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    margin-top:20px;
+}
+
+.user-card{
+    background:var(--card);
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 4px 12px rgba(0,0,0,0.3);
+}
+
+.user-card i{
+    font-size:35px;
+    margin-bottom:15px;
+    color:#3b82f6;
+}
+
+.role-badge{
+    display:inline-block;
+    margin-top:10px;
+    padding:6px 12px;
+    background:#2563eb;
+    border-radius:20px;
+    font-size:12px;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media(max-width:768px){
+
+    nav{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .hero h1{
+        font-size:30px;
+    }
+
+    .sidebar{
+        width:100%;
+        min-height:auto;
+        position:relative;
+    }
+
+    .main-content{
+        margin-left:0;
+    }
+
+    .topbar{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .nav-btn{
+        width:95%;
+    }
+
+}
+.btn-history {
+    padding: 10px 15px;
+    background: #6b21a8;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+.btn-history:hover {
+    background: #7c3aed;
+}
+body {
+    margin: 0;
+    padding: 0;
+
+    background-image: url("/static/bg.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+
+    
+}
+
+/* =========================
+   GOLD SHINY TEXT EFFECT
+========================= */
+h1, h2, h3 {
+    color: gold;
+    text-shadow:
+        0 0 5px #ffd700,
+        0 0 10px #ffd700,
+        0 0 20px #ffb700,
+        0 0 40px #ff8800;
+    letter-spacing: 1px;
+}
+
+/* animated shine */
+@keyframes shine {
+    0% { filter: brightness(1); }
+    50% { filter: brightness(1.6); }
+    100% { filter: brightness(1); }
+}
+
+/* =========================
+   NAVBAR
+========================= */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 30px;
+    background: rgba(0,0,0,0.6);
+    border-bottom: 1px solid gold;
+    box-shadow: 0 0 20px rgba(255,215,0,0.2);
+}
+
+/* =========================
+   HERO
+========================= */
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.hero h1 {
+    font-size: 40px;
+    animation: shine 2s infinite;
+}
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* =========================
+   3D CARD DESIGN
+========================= */
+.card {
+    background: linear-gradient(145deg, #1e293b, #0f172a);
+    border: 1px solid gold;
+    border-radius: 15px;
+
+    padding: 20px;
+
+    box-shadow:
+        0 10px 20px rgba(0,0,0,0.6),
+        inset 0 0 10px rgba(255,215,0,0.1);
+
+    transform: perspective(800px) rotateX(2deg);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: perspective(800px) rotateX(0deg) scale(1.03);
+    box-shadow:
+        0 0 25px gold,
+        0 0 60px rgba(255,215,0,0.3);
+}
+
+/* =========================
+   MATCH BOX (INNER CARDS)
+========================= */
+.match-box {
+    background: rgba(255, 215, 0, 0.05);
+    border: 1px solid rgba(255, 215, 0, 0.4);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+
+    transition: 0.3s;
+}
+
+.match-box:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 15px gold;
+}
+
+/* =========================
+   GOLD BUTTON
+========================= */
+button {
+    background: linear-gradient(45deg, #ffd700, #ffb700);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+
+    font-weight: bold;
+    color: black;
+
+    box-shadow: 0 0 10px gold;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px gold;
+}
+
+/* =========================
+   LIVE TEXT
+========================= */
+.live {
+    color: #00ffcc;
+    font-weight: bold;
+    text-shadow: 0 0 10px #00ffcc;
+}

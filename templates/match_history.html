@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Match History</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: white;
+        }
+
+        .container {
+            padding: 30px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        .back-btn {
+            background: #1e293b;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            background: #334155;
+        }
+
+        .table-box {
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 12px;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #0f172a;
+            color: #93c5fd;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        tr {
+            border-bottom: 1px solid #334155;
+        }
+
+        tr:hover {
+            background: #334155;
+            transition: 0.2s;
+        }
+
+        .score {
+            font-weight: bold;
+            color: #22c55e;
+        }
+
+        .winner {
+            color: #facc15;
+            font-weight: bold;
+        }
+
+        .date {
+            color: #94a3b8;
+            font-size: 13px;
+        }
+
+        .empty {
+            text-align: center;
+            padding: 20px;
+            color: #94a3b8;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1><i class="fa-solid fa-clock-rotate-left"></i> Match History</h1>
+
+        <a href="/admin" class="back-btn">
+            <i class="fa-solid fa-arrow-left"></i> Back to Admin
+        </a>
+    </div>
+
+    <div class="table-box">
+
+        <table>
+
+            <tr>
+                <th>Team 1</th>
+                <th>Team 2</th>
+                <th>Score</th>
+                <th>Winner</th>
+                <th>Deleted At</th>
+            </tr>
+
+            {% for m in history %}
+            <tr>
+                <td>{{ m.team1 }}</td>
+                <td>{{ m.team2 }}</td>
+
+                <td class="score">
+                    {{ m.score1 }} - {{ m.score2 }}
+                </td>
+
+                <td class="winner">
+                    {{ m.winner }}
+                </td>
+
+                <td class="date">
+                    {{ m.deleted_at }}
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="5" class="empty">
+                    No match history found
+                </td>
+            </tr>
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+</div>
+
+</body>
+</html>

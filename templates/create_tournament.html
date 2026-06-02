@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tournament Admin Panel</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+<style>
+
+/* ===== ADMIN LAYOUT ===== */
+.admin-wrapper{
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background: #0f172a;
+    min-height: 100vh;
+    color: white;
+}
+
+/* LEFT FORM */
+.form-container{
+    width: 30%;
+}
+
+.form-card{
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+/* RIGHT LIST */
+.list-container{
+    width: 70%;
+}
+
+.tournament-card{
+    background: #1e293b;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tournament-info h3{
+    margin: 0;
+}
+
+.actions button{
+    margin-left: 5px;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.edit-btn{
+    background: #3b82f6;
+    color: white;
+}
+
+.delete-btn{
+    background: #ef4444;
+    color: white;
+}
+
+.main-btn{
+    background: #22c55e;
+    color: white;
+    padding: 10px;
+    border: none;
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+input{
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="admin-wrapper">
+
+    <!-- ===================== -->
+    <!-- CREATE TOURNAMENT FORM -->
+    <!-- ===================== -->
+    <div class="form-container">
+
+        <div class="form-card">
+
+            <h2>Create Tournament</h2>
+
+            <form method="POST">
+
+                <input type="text" name="tournament_name" placeholder="Tournament Name" required>
+                <input type="text" name="game_name" placeholder="Game Name" required>
+                <input type="text" name="prize_pool" placeholder="Prize Pool" required>
+                <input type="date" name="start_date" required>
+
+                <button type="submit" class="main-btn">
+                    Add Tournament
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- ===================== -->
+    <!-- LIVE TOURNAMENT LIST -->
+    <!-- ===================== -->
+    <div class="list-container">
+
+        <h2>Upcoming Tournaments</h2>
+
+        {% for tournament in tournaments %}
+        <div class="tournament-card">
+
+            <div class="tournament-info">
+                <h3>{{ tournament.tournament_name }}</h3>
+                <p>{{ tournament.game_name }}</p>
+                <p>{{ tournament.prize_pool }}</p>
+                <p>{{ tournament.start_date }}</p>
+            </div>
+
+            <div class="actions">
+
+                <a href="/edit_tournament/{{ tournament.id }}">
+                    <button class="edit-btn">Edit</button>
+                </a>
+
+                <a href="/delete_tournament/{{ tournament.id }}">
+                    <button class="delete-btn">Delete</button>
+                </a>
+
+            </div>
+
+        </div>
+        {% else %}
+        <p>No tournaments available</p>
+        {% endfor %}
+
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Tournament</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="form-container">
+
+    <div class="form-card">
+
+        <h1>Edit Tournament</h1>
+
+        <form method="POST">
+
+            <input type="text"
+            name="tournament_name"
+            value="{{ tournament.tournament_name }}"
+            required>
+
+            <input type="text"
+            name="game_name"
+            value="{{ tournament.game_name }}"
+            required>
+
+            <input type="text"
+            name="prize_pool"
+            value="{{ tournament.prize_pool }}"
+            required>
+
+            <input type="date"
+            name="start_date"
+            value="{{ tournament.start_date }}"
+            required>
+
+            <button type="submit" class="main-btn">
+                Update Tournament
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

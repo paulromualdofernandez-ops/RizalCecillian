@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<nav>
+<h2>Dashboard</h2>
+
+<div>
+
+<a href="/profile">Profile</a>
+<a href="/logout">Logout</a>
+</div>
+</nav>
+
+<div class="container">
+
+<div class="grid">
+
+<div class="card">
+<h2>Registered Teams</h2>
+
+{% for team in teams %}
+<p>{{ team.team_name }} - {{ team.game }}</p>
+{% endfor %}
+</div>
+
+<div class="card">
+<h2>Ranking System</h2>
+
+{% for player in rankings %}
+<p>{{ player.username }} - {{ player.rank_points }} pts</p>
+{% endfor %}
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

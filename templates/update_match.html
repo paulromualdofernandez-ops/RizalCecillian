@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Match</title>
+
+    <style>
+        body{
+            margin:0;
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+            color:white;
+        }
+
+        .card{
+            background:#1e293b;
+            padding:25px;
+            border-radius:12px;
+            width:300px;
+            box-shadow:0 10px 25px rgba(0,0,0,0.4);
+        }
+
+        h1{
+            text-align:center;
+            margin-bottom:20px;
+            font-size:20px;
+        }
+
+        input, select{
+            width:100%;
+            padding:10px;
+            margin:8px 0;
+            border:none;
+            border-radius:8px;
+            outline:none;
+            background:#334155;
+            color:white;
+        }
+
+        input::placeholder{
+            color:#cbd5e1;
+        }
+
+        button{
+            width:100%;
+            padding:10px;
+            margin-top:10px;
+            border:none;
+            border-radius:8px;
+            background:#22c55e;
+            color:white;
+            font-weight:bold;
+            cursor:pointer;
+            transition:0.2s;
+        }
+
+        button:hover{
+            background:#16a34a;
+        }
+
+        select{
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h1>Update Match</h1>
+
+    <form method="POST">
+
+        <input type="number" name="score1" placeholder="Team 1 Score">
+
+        <input type="number" name="score2" placeholder="Team 2 Score">
+
+        <input type="text" name="winner" placeholder="Winner Team">
+
+        <select name="status">
+            <option>Upcoming</option>
+            <option>Live</option>
+            <option>Finished</option>
+        </select>
+
+        <button type="submit">Save Match</button>
+
+    </form>
+</div>
+
+</body>
+</html>

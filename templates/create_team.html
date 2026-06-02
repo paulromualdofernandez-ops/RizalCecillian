@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Team</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="form-container">
+
+    <div class="form-card">
+
+        <h1>Create Team</h1>
+
+        <form method="POST">
+
+            <input type="text"
+            name="team_name"
+            placeholder="Team Name"
+            required>
+
+            <input type="text"
+            name="captain"
+            placeholder="Captain Name"
+            required>
+
+            <input type="text"
+            name="game"
+            placeholder="Game Name"
+            required>
+
+            <button type="submit" class="main-btn">
+                Create Team
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

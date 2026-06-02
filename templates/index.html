@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Esports Tournament</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+
+<body>
+
+<nav>
+<h2>MLBB Esports</h2>
+
+<div>
+<a href="/">Home</a>
+<a href="/login">Login</a>
+<button class="toggle-btn" onclick="toggleMode()">Dark/Light</button>
+</div>
+
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+<h1></h1>
+<p></p>
+</div>
+
+<div class="container">
+
+<!-- ===================== -->
+<!-- LIVE MATCHES -->
+<!-- ===================== -->
+<div class="card">
+<h2>Live Matches</h2>
+
+{% for match in matches %}
+<div class="match-box">
+<h3>{{ match.team1 }} VS {{ match.team2 }}</h3>
+<p class="live">{{ match.status }}</p>
+<p>{{ match.score1 }} - {{ match.score2 }}</p>
+<p>{{ match.match_date }}</p>
+</div>
+{% else %}
+<p>No live matches available.</p>
+{% endfor %}
+
+</div>
+
+<!-- ===================== -->
+<!-- UPCOMING TOURNAMENTS -->
+<!-- ===================== -->
+<div class="card">
+<h2>Upcoming Tournaments</h2>
+
+{% for tournament in tournaments %}
+<div class="match-box">
+
+<h3>{{ tournament.tournament_name }}</h3>
+<p>{{ tournament.game_name }}</p>
+<p>{{ tournament.prize_pool }}</p>
+<p>{{ tournament.start_date }}</p>
+
+</div>
+{% else %}
+<p>No upcoming tournaments.</p>
+{% endfor %}
+
+</div>
+
+<!-- ===================== -->
+<!-- MATCH HISTORY -->
+<!-- ===================== -->
+<div class="card">
+<h2>Match History</h2>
+
+{% for m in history %}
+<div class="match-box">
+
+<h3>{{ m.team1 }} VS {{ m.team2 }}</h3>
+
+<p>
+Score: <strong>{{ m.score1 }} - {{ m.score2 }}</strong>
+</p>
+
+<p>
+Winner: <strong>{{ m.winner }}</strong>
+</p>
+
+</div>
+{% else %}
+<p>No match history available.</p>
+{% endfor %}
+
+</div>
+
+</div>
+
+</body>
+</html>
