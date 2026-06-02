@@ -3,6 +3,7 @@ import sqlite3
 
 app = Flask(__name__)
 app.secret_key = "secret123"
+gunicorn app:app
 
 # =========================
 # DATABASE CONNECTION
